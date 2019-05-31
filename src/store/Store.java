@@ -4,22 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Store {
-    private List<Store> storeList;
+    private List<Stock> stockList;
     private List<Cashier> cashierList;
-    private  int numberOfReceipt;
+    private static int numberOfReceipts = 0;
 
-    public Store(int numberOfReceipt) {
-        this.storeList = new ArrayList<>();
+    public Store() {
+        this.stockList = new ArrayList<>();
         this.cashierList = new ArrayList<>();
-        this.numberOfReceipt = numberOfReceipt;
     }
 
-    public List<Store> getStoreList() {
-        return storeList;
+    public List<Stock> getStockList() {
+        return stockList;
     }
 
-    public void setStoreList(List<Store> storeList) {
-        this.storeList = storeList;
+    public void setStoreList(List<Stock> stockList) {
+        this.stockList = stockList;
     }
 
     public List<Cashier> getCashierList() {
@@ -30,20 +29,28 @@ public class Store {
         this.cashierList = cashierList;
     }
 
-    public int getNumberOfReceipt() {
-        return numberOfReceipt;
+    public int getNumberOfReceipts() {
+        return numberOfReceipts;
     }
 
-    public void setNumberOfReceipt(int numberOfReceipt) {
-        this.numberOfReceipt = numberOfReceipt;
+    public void setNumberOfReceipts(int numberOfReceipts) {
+        this.numberOfReceipts = numberOfReceipts;
+    }
+    
+    public void populateStockList() {
+    	this.stockList = Stock.getAllStocks();
+    }
+    
+    public void populateCashierList() {
+    	this.cashierList = Cashier.getAllCashiers();
     }
 
     @Override
     public String toString() {
         return "Store{" +
-                "storeList=" + storeList +
+                "storeList=" + stockList +
                 ", cashierList=" + cashierList +
-                ", numberOfReceipt=" + numberOfReceipt +
+                ", numberOfReceipt=" + numberOfReceipts +
                 '}';
     }
 }

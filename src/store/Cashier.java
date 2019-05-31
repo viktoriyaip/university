@@ -1,12 +1,16 @@
 package store;
 
+import java.util.List;
+
 public class Cashier {
     private long id;
     private String name;
+    private static List<Cashier> allCashiers;
 
     public Cashier(long id, String name) {
         this.id = id;
         this.name = name;
+        allCashiers.add(this);
     }
 
     public long getId() {
@@ -23,6 +27,10 @@ public class Cashier {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public static List<Cashier> getAllCashiers() {
+    	return allCashiers;
     }
 
     @Override

@@ -1,18 +1,21 @@
 package store;
 
 import java.util.Date;
+import java.util.List;
 
 public class Stock {
     private long id;
     private String name;
     private double singlePrice;
-    private Date date;
+    private Date expiryDate;
+    private static List<Stock> allStocks; 
 
-    public Stock(long id, String name, double singlePrice, Date date) {
+    public Stock(long id, String name, double singlePrice, Date expiryDate) {
         this.id = id;
         this.name = name;
         this.singlePrice = singlePrice;
-        this.date = date;
+        this.expiryDate = expiryDate;
+        allStocks.add(this);
     }
 
     public long getId() {
@@ -39,12 +42,16 @@ public class Stock {
         this.singlePrice = singlePrice;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getExpiryDate() {
+        return expiryDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setExpiryDate(Date expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+    
+    public static List<Stock> getAllStocks() {
+    	return allStocks;
     }
 
     @Override
@@ -53,7 +60,7 @@ public class Stock {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", singlePrice=" + singlePrice +
-                ", date=" + date +
+                ", expiryDate=" + expiryDate +
                 '}';
     }
 }
