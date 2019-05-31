@@ -1,16 +1,20 @@
 package store;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Stock {
     private long id;
     private String name;
     private double singlePrice;
-    private Date expiryDate;
+    private LocalDate expiryDate;
     private static List<Stock> allStocks; 
 
-    public Stock(long id, String name, double singlePrice, Date expiryDate) {
+    public Stock(long id, String name, double singlePrice, LocalDate expiryDate) {
+    	if(allStocks == null) {
+    		allStocks = new ArrayList<>();
+    	}
         this.id = id;
         this.name = name;
         this.singlePrice = singlePrice;
@@ -42,11 +46,11 @@ public class Stock {
         this.singlePrice = singlePrice;
     }
 
-    public Date getExpiryDate() {
+    public LocalDate getExpiryDate() {
         return expiryDate;
     }
 
-    public void setExpiryDate(Date expiryDate) {
+    public void setExpiryDate(LocalDate expiryDate) {
         this.expiryDate = expiryDate;
     }
     

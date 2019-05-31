@@ -7,6 +7,7 @@ public class Store {
     private List<Stock> stockList;
     private List<Cashier> cashierList;
     private static int numberOfReceipts = 0;
+    private static Double totalRevenue = 0.00; 
 
     public Store() {
         this.stockList = new ArrayList<>();
