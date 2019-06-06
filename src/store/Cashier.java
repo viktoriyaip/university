@@ -1,11 +1,12 @@
 package store;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cashier {
     private long id;
     private String name;
-    private static List<Cashier> allCashiers;
+    private static List<Cashier> allCashiers = new ArrayList<>();
 
     public Cashier(long id, String name) {
         this.id = id;
